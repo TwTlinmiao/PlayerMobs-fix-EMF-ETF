@@ -31,9 +31,9 @@ public class PlayerMobRenderer extends HumanoidMobRenderer<PlayerMobEntity, Play
     private final int armorLayerIndex;
 
     public PlayerMobRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new PlayerModel<>(pContext.bakeLayer(ModelLayers.PLAYER), false), 0.5F);
+        super(pContext, new PlayerMobModel(pContext.bakeLayer(ModelLayers.PLAYER), false), 0.5F);
         playerModel = this.model;
-        slimModel = new PlayerModel<>(pContext.bakeLayer(ModelLayers.PLAYER_SLIM), true);
+        slimModel = new PlayerMobModel(pContext.bakeLayer(ModelLayers.PLAYER_SLIM), true);
         playerArmorModel = new HumanoidArmorLayer<>(
                 this,
                 new HumanoidArmorModel<>(pContext.bakeLayer(ModelLayers.PLAYER_INNER_ARMOR)),
@@ -65,10 +65,6 @@ public class PlayerMobRenderer extends HumanoidMobRenderer<PlayerMobEntity, Play
         layers.remove(slimArmorModel);
         // Make sure we add the armor layer before most other layers as you normally do
         layers.add(armorLayerIndex, slim ? slimArmorModel : playerArmorModel);
-
-        if (pEntity.isBaby()) {
-            model.hat.visible = true;
-        }
 
         model.leftArmPose = HumanoidModel.ArmPose.EMPTY;
         model.rightArmPose = HumanoidModel.ArmPose.EMPTY;
