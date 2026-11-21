@@ -66,6 +66,10 @@ public class PlayerMobRenderer extends HumanoidMobRenderer<PlayerMobEntity, Play
         // Make sure we add the armor layer before most other layers as you normally do
         layers.add(armorLayerIndex, slim ? slimArmorModel : playerArmorModel);
 
+        if (pEntity.isBaby()) {
+            model.hat.visible = true;
+        }
+
         model.leftArmPose = HumanoidModel.ArmPose.EMPTY;
         model.rightArmPose = HumanoidModel.ArmPose.EMPTY;
         ItemStack stack = pEntity.getMainHandItem();

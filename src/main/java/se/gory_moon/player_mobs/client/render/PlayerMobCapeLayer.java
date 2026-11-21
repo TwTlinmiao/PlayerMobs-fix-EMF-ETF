@@ -30,6 +30,10 @@ public class PlayerMobCapeLayer extends RenderLayer<PlayerMobEntity, PlayerModel
     }
 
     public void render(@NotNull PoseStack matrixStackIn, @NotNull MultiBufferSource bufferIn, int packedLightIn, @NotNull PlayerMobEntity entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+        if (entity.isBaby()) {
+            return;
+        }
+
         Optional<ResourceLocation> location = TextureUtils.getPlayerCape(entity);
         if (!entity.isInvisible() && location.isPresent()) {
             ItemStack itemstack = entity.getItemBySlot(EquipmentSlot.CHEST);
