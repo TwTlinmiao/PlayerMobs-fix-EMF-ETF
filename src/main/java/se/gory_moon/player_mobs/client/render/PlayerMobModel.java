@@ -13,10 +13,8 @@ public class PlayerMobModel extends PlayerModel<PlayerMobEntity> {
     public void setupAnim(PlayerMobEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         if (entity.isBaby()) {
+            hat.copyFrom(head);
             hat.visible = true;
-            hat.xScale = 1.0F;
-            hat.yScale = 1.0F;
-            hat.zScale = 1.0F;
         }
     }
 }
