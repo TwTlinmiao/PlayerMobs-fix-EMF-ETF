@@ -9,4 +9,8 @@ Changed on 2026-11-21:
 - Baby PlayerMobs do not render capes, avoiding the unsupported cape placement on the small model. Their head overlay (`hat` model part) is explicitly made visible and copies the animated head transform each frame so its position and scale stay aligned with the base head.
 - Corrected the Gradle mod license metadata to `GPL-3.0`, matching the included `LICENSE` text. Corrected the README's misspelled license label.
 
+Changed on 2026-11-22:
+
+- For baby PlayerMobs, render the head overlay (`hat`) in the same baby-scaled head group as the base head instead of the smaller baby-scaled body group. This prevents the overlay from appearing inside the base head even without EMF or a resource pack.
+
 This is not an official PlayerMobs release. The modified project remains under GNU GPL version 3; see `LICENSE`.
